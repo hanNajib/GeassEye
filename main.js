@@ -448,14 +448,14 @@ function showCommand(text) {
 }
 
 // ── MEDIAPIPE ─────────────────────────────────────────────────
-const faceMesh = new FaceMesh({ locateFile: f => `./node_modules/@mediapipe/face_mesh/${f}` });
+const faceMesh = new FaceMesh({ locateFile: f => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4.1633559619/${f}` });
 faceMesh.setOptions({ maxNumFaces:1, refineLandmarks:true, minDetectionConfidence:0.65, minTrackingConfidence:0.65 });
 faceMesh.onResults(r => {
   faceData = r.multiFaceLandmarks?.length ? r.multiFaceLandmarks[0] : null;
   update();
 });
 
-const hands = new Hands({ locateFile: f => `./node_modules/@mediapipe/hands/${f}` });
+const hands = new Hands({ locateFile: f => `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/${f}` });
 hands.setOptions({ maxNumHands:1, modelComplexity:1, minDetectionConfidence:0.65, minTrackingConfidence:0.65 });
 hands.onResults(r => {
   handData = r.multiHandLandmarks?.length ? r.multiHandLandmarks[0] : null;
